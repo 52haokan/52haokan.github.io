@@ -1,0 +1,335 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="52haokan读书笔记">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="https://52haokan.github.io.git">
+    <!--SEO-->
+
+<meta name="keywords" content="52haokan,读书,笔记,学习,心得,记录，Python,办公技巧" />
+
+
+<meta name="description" content="Python xlwings库学习笔记（1）Python是最近几年很火的编程语言，被办公自动化的宣传吸引入坑，办公自动化必然绕不开Excel的操作，能操作Excel的库有很多，例如：
+xlrdx..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    Python xlwings库学习笔记（1） |
+    
+    52haokan读书笔记
+</title>
+
+<link rel="alternate" href="/atom.xml" title="52haokan读书笔记" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='52haokan'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://52haokan.github.io.git">
+                        52haokan读书笔记</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/读书笔记/"><i class="fa "></i>
+                                读书笔记</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/Python 学习/"><i class="fa "></i>
+                                Python 学习</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/工具/"><i class="fa "></i>
+                                工具</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Python xlwings库学习笔记（1）">
+            
+            Python xlwings库学习笔记（1）
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2021/01/07</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="Python-xlwings库学习笔记（1）"><a href="#Python-xlwings库学习笔记（1）" class="headerlink" title="Python xlwings库学习笔记（1）"></a>Python xlwings库学习笔记（1）</h1><p>Python是最近几年很火的编程语言，被办公自动化的宣传吸引入坑，办公自动化必然绕不开Excel的操作，能操作Excel的库有很多，例如：</p>
+<h3 id="xlrd"><a href="#xlrd" class="headerlink" title="xlrd"></a>xlrd</h3><p>xlrd是一个从Excel文件读取数据和格式化信息的库，支持.xls以及.xlsx文件。</p>
+<p>1、xlrd支持.xls，.xlsx文件的读</p>
+<p>2、通过设置on_demand变量使open_workbook()函数只加载那些需要的sheet，从而节省时间和内存（该方法对.xlsx文件无效）。</p>
+<p>3、xlrd.Book对象有一个unload_sheet方法，它将从内存中卸载工作表，由工作表索引或工作表名称指定（该方法对.xlsx文件无效）</p>
+<h3 id="xlwt"><a href="#xlwt" class="headerlink" title="xlwt"></a>xlwt</h3><p>xlwt是一个用于将数据和格式化信息写入旧Excel文件的库（如.xls）。</p>
+<p>1、xlwt支持.xls文件写。</p>
+<h3 id="xlutils"><a href="#xlutils" class="headerlink" title="xlutils"></a>xlutils</h3><p>xlutils是一个处理Excel文件的库，依赖于xlrd和xlwt。<br>1、xlutils支持.xls文件。<br>2、支持Excel操作。</p>
+<h3 id="xlwings"><a href="#xlwings" class="headerlink" title="xlwings"></a>xlwings</h3><p>xlwings是一个可以实现从Excel调用Python，也可在python中调用Excel的库。<br>1、xlwings支持.xls读，支持.xlsx文件读写。<br>2、支持Excel操作。<br>3、支持VBA。<br>4、强大的转换器可以处理大部分数据类型，包括在两个方向上的numpy array和pandas DataFrame。</p>
+<h3 id="openpyxl"><a href="#openpyxl" class="headerlink" title="openpyxl"></a>openpyxl</h3><p>openpyxl是一个用于读取和编写Excel 2010 xlsx/xlsm/xltx/xltm文件的库。<br>1、openpyxl支持.xlsx文件的读写。<br>2、支持Excel操作。<br>3、加载.xlsx文件可以使用read_only模式。<br>4、写入.xlsx文件可以使用write_only模式。</p>
+<h3 id="xlsxwriter"><a href="#xlsxwriter" class="headerlink" title="xlsxwriter"></a>xlsxwriter</h3><p>xlsxwriter是一个用于创建Excel .xlsx文件的库。<br>1、xlswriter支持.xlsx文件写。<br>2、支持VBA。<br>3、写入.xlsx文件时使用内存优化模式。</p>
+<h3 id="win32com"><a href="#win32com" class="headerlink" title="win32com"></a>win32com</h3><p>win32com库存在于pywin32中，是一个读写和处理Excel文件的库。<br>1、win32com支持.xls，.xlsx文件的读写，支持.xlsx文件的写。<br>2、支持Excel操作。</p>
+<h3 id="DataNitro"><a href="#DataNitro" class="headerlink" title="DataNitro"></a>DataNitro</h3><p>DataNitro是一个内嵌在Excel中的插件。<br>1、DataNitro支持.xls，.xlsx文件的读写。<br>2、支持Excel操作。<br>3、支持VBA。<br>4、收费</p>
+<h3 id="pandas"><a href="#pandas" class="headerlink" title="pandas"></a>pandas</h3><p>pandas通过对Excel文件的读写实现数据输入输出<br>1、pandas支持.xls，.xlsx文件的读写。<br>2、支持只加载每个表的单一工作页。</p>
+<h3 id="为什么选择Xlwings"><a href="#为什么选择Xlwings" class="headerlink" title="为什么选择Xlwings"></a>为什么选择Xlwings</h3><p>   这么多库，我为什么会选择Xlwings学习了，主要是因为我的数据大部分是从系统导出的，自身带了一些格式，已经试过xlrd、xlutils、openpyxl、xlsxwriter、pandas都不能自动打开，必须经过处理之后才能打开，具体原因未找到，只有xlwings能正常操作。如果有知道原因的朋友请指点！</p>
+<h4 id="导入库"><a href="#导入库" class="headerlink" title="导入库"></a><strong>导入库</strong></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> xlwings <span class="keyword">as</span> xw</span><br></pre></td></tr></table></figure>
+
+<h4 id="打开excel"><a href="#打开excel" class="headerlink" title="打开excel"></a><strong>打开excel</strong></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#visible是否可见。False表示后台运行。add_book 是否新建一个工作簿 </span></span><br><span class="line">app = xw.App(visible=<span class="literal">True</span>,add_book=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="新建excel工作簿"><a href="#新建excel工作簿" class="headerlink" title="新建excel工作簿"></a><strong>新建excel工作簿</strong></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wb = app.books.add() <span class="comment">#创建新的book</span></span><br><span class="line">wb = app.books.open()</span><br><span class="line">wk = xw.Book()</span><br><span class="line">wk = xw.books.open()</span><br></pre></td></tr></table></figure>
+
+<h4 id="打开工作薄"><a href="#打开工作薄" class="headerlink" title="打开工作薄"></a><strong>打开工作薄</strong></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wb = app.books.open()</span><br><span class="line">wb = xw.Book()</span><br><span class="line">wb = xw.books.open()</span><br></pre></td></tr></table></figure>
+
+<h4 id="返回所有book对象集合"><a href="#返回所有book对象集合" class="headerlink" title="返回所有book对象集合"></a><strong>返回所有book对象集合</strong></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.books  <span class="comment">#返回一个打开的全部workbook的列表。Python打开的和手动打开的是不互通的</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="退出excel-操作完了必须退出，否则会一直有一个EXCEL进程保留在后台运行"><a href="#退出excel-操作完了必须退出，否则会一直有一个EXCEL进程保留在后台运行" class="headerlink" title="退出excel(操作完了必须退出，否则会一直有一个EXCEL进程保留在后台运行)"></a><strong>退出excel</strong>(操作完了必须退出，否则会一直有一个EXCEL进程保留在后台运行)</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wb.save()  <span class="comment">#保存文件.</span></span><br><span class="line">wb.close() <span class="comment">#关闭文件.</span></span><br><span class="line">app.kill(): <span class="comment">#中止进程，强制退出。</span></span><br><span class="line">app.quit(): <span class="comment">#在不保存的情况下，退出excel程序。</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="活动对象"><a href="#活动对象" class="headerlink" title="活动对象"></a><strong>活动对象</strong></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 活动应用程序（即Excel实例）</span></span><br><span class="line">app = xw.apps.active  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 活动工作簿 </span></span><br><span class="line">wb = xw.books.active  <span class="comment"># 在活动</span></span><br><span class="line">appwb = app.books.active  <span class="comment"># 在特定app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 活动工作表</span></span><br><span class="line">sht = xw.sheets.active  <span class="comment"># 在活动工作簿</span></span><br><span class="line">sht = wb.sheets.active  <span class="comment"># 在特定工作簿</span></span><br><span class="line"><span class="comment"># 活动工作表的Range</span></span><br><span class="line">xw.Range(<span class="string">'A1'</span>)  <span class="comment">#在活动应用程序的活动工作簿的活动表上</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="活动工作表的捷径-：xw-Range"><a href="#活动工作表的捷径-：xw-Range" class="headerlink" title="活动工作表的捷径 ：xw.Range"></a><strong>活动工作表的捷径</strong> ：xw.Range</h4><p>如果要快速与活动工作簿中的活动工作表通信，则不需要实例化工作簿和工作表对象，可以简单地执行：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> xlwings <span class="keyword">as</span> xw</span><br><span class="line">xw.Range(<span class="string">'A1'</span>).value = <span class="string">'Foo'</span></span><br><span class="line">xw.Range(<span class="string">'A1'</span>).value<span class="string">'Foo'</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>：在与Excel交互时，您应该只使用<code>xw.Range</code>。在脚本中，您应该始终通过工作簿和工作表对象，如上所示。</p>
+<h4 id="选定单元格"><a href="#选定单元格" class="headerlink" title="选定单元格"></a><strong>选定单元格</strong></h4><p>可以使用A1表示法，Excel的基于1的索引的元组，命名范围或两个Range对象来实例化范围：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">xw.Range(<span class="string">'A1'</span>)</span><br><span class="line">xw.Range(<span class="string">'A1:C3'</span>)</span><br><span class="line">xw.Range((<span class="number">1</span>,<span class="number">1</span>))     <span class="comment">#基于1的索引的元组，相当于'A1'</span></span><br><span class="line">xw.Range((<span class="number">1</span>,<span class="number">1</span>), (<span class="number">3</span>,<span class="number">3</span>))  <span class="comment">#基于1的索引的元组，相当于'A1:C3'</span></span><br><span class="line">xw.Range(<span class="string">'NamedRange'</span>)  <span class="comment">#命名范围</span></span><br><span class="line">xw.Range(xw.Range(<span class="string">'A1'</span>), xw.Range(<span class="string">'B2'</span>))<span class="comment">#两个Range对象来实例化范围,相当于'A1:B2'</span></span><br></pre></td></tr></table></figure>
+
+<p>基于1的索引的元组在列操作时比较方便，免于目标单元格在查出多少列后，还要去对应A、B、C…列。</p>
+<p>圆括号遵循Excel的行为（即基于1的索引），而方括号使用Python的基于0的索引/切片。例如，以下表达式都引用相同的范围：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xw.apps[<span class="number">763</span>].books[<span class="number">0</span>].sheets[<span class="number">0</span>].range(<span class="string">'A1'</span>) <span class="comment">#工作簿1中第一个工作表的A1单元格xw.apps(10559).books(1).sheets(1).range('A1') #工作簿1中第一个工作表的A1单元格xw.apps[763].books['Book1'].sheets['Sheet1'].range('A1') #工作簿book中sheet1工作表的A1单元格</span></span><br><span class="line">xw.apps(<span class="number">10559</span>).books(<span class="string">'Book1'</span>).sheets(<span class="string">'Sheet1'</span>).range(<span class="string">'A1'</span>)<span class="comment">#工作簿book中sheet1工作表的A1单元格</span></span><br></pre></td></tr></table></figure>
+
+<p>请注意，apps键是进程ID（PID）。可以通过<code>xw.apps.keys()</code>获取PID列表。</p>
+<h4 id="Range索引-切片"><a href="#Range索引-切片" class="headerlink" title="Range索引/切片"></a><strong>Range索引/切片</strong></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>rng = xw.Book().sheets[<span class="number">0</span>].range(<span class="string">'A1:D5'</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>rng[<span class="number">0</span>, <span class="number">0</span>] </span><br><span class="line">&lt;Range [Workbook1]Sheet1!$A$<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>rng[<span class="number">1</span>] </span><br><span class="line">&lt;Range [Workbook1]Sheet1!$B$<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>rng[:, <span class="number">3</span>:]</span><br><span class="line">&lt;Range [Workbook1]Sheet1!$D$<span class="number">1</span>:$D$<span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>rng[<span class="number">1</span>:<span class="number">3</span>, <span class="number">1</span>:<span class="number">3</span>]</span><br><span class="line">&lt;Range [Workbook1]Sheet1!$B$<span class="number">2</span>:$C$<span class="number">3</span>&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>未完待续，自己写一遍，对学习是很有益，即使很多都是复制粘贴的，也有很多细节在纯粹的看时没注意到的。</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+    <a href="/2020/04/19/hello-world/" class="next-post btn btn-default" title='Hello World'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            Hello World</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python-xlwings库学习笔记（1）"><span class="toc-text">Python xlwings库学习笔记（1）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#xlrd"><span class="toc-text">xlrd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xlwt"><span class="toc-text">xlwt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xlutils"><span class="toc-text">xlutils</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xlwings"><span class="toc-text">xlwings</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#openpyxl"><span class="toc-text">openpyxl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xlsxwriter"><span class="toc-text">xlsxwriter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#win32com"><span class="toc-text">win32com</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DataNitro"><span class="toc-text">DataNitro</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pandas"><span class="toc-text">pandas</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么选择Xlwings"><span class="toc-text">为什么选择Xlwings</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#导入库"><span class="toc-text">导入库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#打开excel"><span class="toc-text">打开excel</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#新建excel工作簿"><span class="toc-text">新建excel工作簿</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#打开工作薄"><span class="toc-text">打开工作薄</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#返回所有book对象集合"><span class="toc-text">返回所有book对象集合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#退出excel-操作完了必须退出，否则会一直有一个EXCEL进程保留在后台运行"><span class="toc-text">退出excel(操作完了必须退出，否则会一直有一个EXCEL进程保留在后台运行)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#活动对象"><span class="toc-text">活动对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#活动工作表的捷径-：xw-Range"><span class="toc-text">活动工作表的捷径 ：xw.Range</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#选定单元格"><span class="toc-text">选定单元格</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Range索引-切片"><span class="toc-text">Range索引&#x2F;切片</span></a></li></ol></li></ol></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>
