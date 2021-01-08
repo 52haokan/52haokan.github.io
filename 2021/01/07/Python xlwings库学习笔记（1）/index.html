@@ -177,20 +177,20 @@ xlrdx..." />
     
     <div class="post-body post-content">
         <h1 id="Python-xlwings库学习笔记（1）"><a href="#Python-xlwings库学习笔记（1）" class="headerlink" title="Python xlwings库学习笔记（1）"></a>Python xlwings库学习笔记（1）</h1><p>Python是最近几年很火的编程语言，被办公自动化的宣传吸引入坑，办公自动化必然绕不开Excel的操作，能操作Excel的库有很多，例如：</p>
-<h3 id="xlrd"><a href="#xlrd" class="headerlink" title="xlrd"></a>xlrd</h3><p>xlrd是一个从Excel文件读取数据和格式化信息的库，支持.xls以及.xlsx文件。</p>
+<h3 id="xlrd"><a href="#xlrd" class="headerlink" title="xlrd"></a><strong>xlrd</strong></h3><p>xlrd是一个从Excel文件读取数据和格式化信息的库，支持.xls以及.xlsx文件。</p>
 <p>1、xlrd支持.xls，.xlsx文件的读</p>
 <p>2、通过设置on_demand变量使open_workbook()函数只加载那些需要的sheet，从而节省时间和内存（该方法对.xlsx文件无效）。</p>
 <p>3、xlrd.Book对象有一个unload_sheet方法，它将从内存中卸载工作表，由工作表索引或工作表名称指定（该方法对.xlsx文件无效）</p>
-<h3 id="xlwt"><a href="#xlwt" class="headerlink" title="xlwt"></a>xlwt</h3><p>xlwt是一个用于将数据和格式化信息写入旧Excel文件的库（如.xls）。</p>
+<h3 id="xlwt"><a href="#xlwt" class="headerlink" title="xlwt"></a><strong>xlwt</strong></h3><p>xlwt是一个用于将数据和格式化信息写入旧Excel文件的库（如.xls）。</p>
 <p>1、xlwt支持.xls文件写。</p>
-<h3 id="xlutils"><a href="#xlutils" class="headerlink" title="xlutils"></a>xlutils</h3><p>xlutils是一个处理Excel文件的库，依赖于xlrd和xlwt。<br>1、xlutils支持.xls文件。<br>2、支持Excel操作。</p>
-<h3 id="xlwings"><a href="#xlwings" class="headerlink" title="xlwings"></a>xlwings</h3><p>xlwings是一个可以实现从Excel调用Python，也可在python中调用Excel的库。<br>1、xlwings支持.xls读，支持.xlsx文件读写。<br>2、支持Excel操作。<br>3、支持VBA。<br>4、强大的转换器可以处理大部分数据类型，包括在两个方向上的numpy array和pandas DataFrame。</p>
-<h3 id="openpyxl"><a href="#openpyxl" class="headerlink" title="openpyxl"></a>openpyxl</h3><p>openpyxl是一个用于读取和编写Excel 2010 xlsx/xlsm/xltx/xltm文件的库。<br>1、openpyxl支持.xlsx文件的读写。<br>2、支持Excel操作。<br>3、加载.xlsx文件可以使用read_only模式。<br>4、写入.xlsx文件可以使用write_only模式。</p>
-<h3 id="xlsxwriter"><a href="#xlsxwriter" class="headerlink" title="xlsxwriter"></a>xlsxwriter</h3><p>xlsxwriter是一个用于创建Excel .xlsx文件的库。<br>1、xlswriter支持.xlsx文件写。<br>2、支持VBA。<br>3、写入.xlsx文件时使用内存优化模式。</p>
-<h3 id="win32com"><a href="#win32com" class="headerlink" title="win32com"></a>win32com</h3><p>win32com库存在于pywin32中，是一个读写和处理Excel文件的库。<br>1、win32com支持.xls，.xlsx文件的读写，支持.xlsx文件的写。<br>2、支持Excel操作。</p>
-<h3 id="DataNitro"><a href="#DataNitro" class="headerlink" title="DataNitro"></a>DataNitro</h3><p>DataNitro是一个内嵌在Excel中的插件。<br>1、DataNitro支持.xls，.xlsx文件的读写。<br>2、支持Excel操作。<br>3、支持VBA。<br>4、收费</p>
-<h3 id="pandas"><a href="#pandas" class="headerlink" title="pandas"></a>pandas</h3><p>pandas通过对Excel文件的读写实现数据输入输出<br>1、pandas支持.xls，.xlsx文件的读写。<br>2、支持只加载每个表的单一工作页。</p>
-<h3 id="为什么选择Xlwings"><a href="#为什么选择Xlwings" class="headerlink" title="为什么选择Xlwings"></a>为什么选择Xlwings</h3><p>   这么多库，我为什么会选择Xlwings学习了，主要是因为我的数据大部分是从系统导出的，自身带了一些格式，已经试过xlrd、xlutils、openpyxl、xlsxwriter、pandas都不能自动打开，必须经过处理之后才能打开，具体原因未找到，只有xlwings能正常操作。如果有知道原因的朋友请指点！</p>
+<h3 id="xlutils"><a href="#xlutils" class="headerlink" title="xlutils"></a><strong>xlutils</strong></h3><p>xlutils是一个处理Excel文件的库，依赖于xlrd和xlwt。<br>1、xlutils支持.xls文件。<br>2、支持Excel操作。</p>
+<h3 id="xlwings"><a href="#xlwings" class="headerlink" title="xlwings"></a><strong>xlwings</strong></h3><p>xlwings是一个可以实现从Excel调用Python，也可在python中调用Excel的库。<br>1、xlwings支持.xls读，支持.xlsx文件读写。<br>2、支持Excel操作。<br>3、支持VBA。<br>4、强大的转换器可以处理大部分数据类型，包括在两个方向上的numpy array和pandas DataFrame。</p>
+<h3 id="openpyxl"><a href="#openpyxl" class="headerlink" title="openpyxl"></a><strong>openpyxl</strong></h3><p>openpyxl是一个用于读取和编写Excel 2010 xlsx/xlsm/xltx/xltm文件的库。<br>1、openpyxl支持.xlsx文件的读写。<br>2、支持Excel操作。<br>3、加载.xlsx文件可以使用read_only模式。<br>4、写入.xlsx文件可以使用write_only模式。</p>
+<h3 id="xlsxwriter"><a href="#xlsxwriter" class="headerlink" title="xlsxwriter"></a><strong>xlsxwriter</strong></h3><p>xlsxwriter是一个用于创建Excel .xlsx文件的库。<br>1、xlswriter支持.xlsx文件写。<br>2、支持VBA。<br>3、写入.xlsx文件时使用内存优化模式。</p>
+<h3 id="win32com"><a href="#win32com" class="headerlink" title="win32com"></a><strong>win32com</strong></h3><p>win32com库存在于pywin32中，是一个读写和处理Excel文件的库。<br>1、win32com支持.xls，.xlsx文件的读写，支持.xlsx文件的写。<br>2、支持Excel操作。</p>
+<h3 id="DataNitro"><a href="#DataNitro" class="headerlink" title="DataNitro"></a><strong>DataNitro</strong></h3><p>DataNitro是一个内嵌在Excel中的插件。<br>1、DataNitro支持.xls，.xlsx文件的读写。<br>2、支持Excel操作。<br>3、支持VBA。<br>4、收费</p>
+<h3 id="pandas"><a href="#pandas" class="headerlink" title="pandas"></a><strong>pandas</strong></h3><p>pandas通过对Excel文件的读写实现数据输入输出<br>1、pandas支持.xls，.xlsx文件的读写。<br>2、支持只加载每个表的单一工作页。</p>
+<h3 id="为什么选择Xlwings"><a href="#为什么选择Xlwings" class="headerlink" title="为什么选择Xlwings"></a><strong>为什么选择Xlwings</strong></h3><p>   这么多库，我为什么会选择Xlwings学习了，主要是因为我的数据大部分是从系统导出的，自身带了一些格式，已经试过xlrd、xlutils、openpyxl、xlsxwriter、pandas都不能自动打开，必须经过处理之后才能打开，具体原因未找到，只有xlwings能正常操作。如果有知道原因的朋友请指点！</p>
 <h4 id="导入库"><a href="#导入库" class="headerlink" title="导入库"></a><strong>导入库</strong></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> xlwings <span class="keyword">as</span> xw</span><br></pre></td></tr></table></figure>
 
 <h4 id="打开excel"><a href="#打开excel" class="headerlink" title="打开excel"></a><strong>打开excel</strong></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#visible是否可见。False表示后台运行。add_book 是否新建一个工作簿 </span></span><br><span class="line">app = xw.App(visible=<span class="literal">True</span>,add_book=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
