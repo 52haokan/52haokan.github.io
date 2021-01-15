@@ -1,0 +1,311 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="52haokan读书笔记">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="https://52haokan.github.io.git">
+    <!--SEO-->
+
+<meta name="keywords" content="python,xlwings,办公自动化" />
+
+
+<meta name="description" content="Python OS 文件/目录方法学习笔记 os模块提供了对系统环境、文件、目录等操作系统级的接口函数。常用的方法、函数如下所示：
+常见函数123456789101112131415161718..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    Python OS 文件/目录方法学习笔记 |
+    
+    52haokan读书笔记
+</title>
+
+<link rel="alternate" href="/atom.xml" title="52haokan读书笔记" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='52haokan'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://52haokan.github.io.git">
+                        52haokan读书笔记</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/读书笔记/"><i class="fa "></i>
+                                读书笔记</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/Python学习/"><i class="fa "></i>
+                                Python学习</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/办公技巧/"><i class="fa "></i>
+                                办公技巧</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/其他/"><i class="fa "></i>
+                                其他</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Python OS 文件/目录方法学习笔记">
+            
+            Python OS 文件/目录方法学习笔记
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Python%E5%AD%A6%E4%B9%A0/">Python学习</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/python/" rel="tag">python</a> <a class="tag-link" href="/tags/xlwings/" rel="tag">xlwings</a> <a class="tag-link" href="/tags/%E5%8A%9E%E5%85%AC%E8%87%AA%E5%8A%A8%E5%8C%96/" rel="tag">办公自动化</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2021/01/12</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="Python-OS-文件-目录方法学习笔记"><a href="#Python-OS-文件-目录方法学习笔记" class="headerlink" title="Python OS 文件/目录方法学习笔记"></a>Python OS 文件/目录方法学习笔记</h1><p> os模块提供了对系统环境、文件、目录等操作系统级的接口函数。常用的方法、函数如下所示：</p>
+<h3 id="常见函数"><a href="#常见函数" class="headerlink" title="常见函数"></a><strong>常见函数</strong></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">os.sep <span class="comment">#取代操作系统特定的路径分隔符。</span></span><br><span class="line">os.name <span class="comment">#指示你正在使用的工作平台。比如对于Windows，它是'nt'，而对于Linux/Unix用户，它是'posix'。</span></span><br><span class="line">os.getcwd <span class="comment">#得到当前工作目录，即当前python脚本工作的目录路径。</span></span><br><span class="line">os.getenv()和os.putenv <span class="comment">#分别用来读取和设置环境变量</span></span><br><span class="line">os.listdir() <span class="comment">#返回指定目录下的所有文件和目录名</span></span><br><span class="line">os.remove(file)<span class="comment">#删除一个文件</span></span><br><span class="line">os.stat(file) <span class="comment">#获得文件属性</span></span><br><span class="line">os.chmod(file) <span class="comment">#修改文件权限和时间戳</span></span><br><span class="line">os.mkdir(name)  <span class="comment">#创建目录</span></span><br><span class="line">os.rmdir(name) <span class="comment">#删除目录</span></span><br><span class="line">os.removedirs（r“c：\python”）<span class="comment">#删除多个目录</span></span><br><span class="line">os.system() <span class="comment">#运行shell命令</span></span><br><span class="line">os.exit() <span class="comment">#终止当前进程</span></span><br><span class="line">os.linesep  <span class="comment">#给出当前平台的行终止符。例如，Windows使用'\r\n'，Linux使用'\n'而Mac使用'\r'</span></span><br><span class="line">os.path.split() <span class="comment">#返回一个路径的目录名和文件名</span></span><br><span class="line">os.path.isfile()和os.path.isdir() <span class="comment">#分别检验给出的路径是一个目录还是文件</span></span><br><span class="line">os.path.existe() <span class="comment">#检验给出的路径是否真的存在</span></span><br><span class="line">os.listdir(dirname)  <span class="comment">#列出dirname下的目录和文件</span></span><br><span class="line">os.getcwd()  <span class="comment">#获得当前工作目录</span></span><br><span class="line">os.curdir  <span class="comment">#返回当前目录（'.'）</span></span><br><span class="line">os.chdir(dirname)  <span class="comment">#改变工作目录到dirname</span></span><br><span class="line">os.path.isdir(name) <span class="comment">#判断name是不是目录，不是目录就返回false</span></span><br><span class="line">os.path.isfile(name) <span class="comment">#判断name这个文件是否存在，不存在返回false</span></span><br><span class="line">os.path.exists(name) <span class="comment">#判断是否存在文件或目录name</span></span><br><span class="line">os.path.getsize(name) <span class="comment">#或得文件大小，如果name是目录返回0L</span></span><br><span class="line">os.path.abspath(name) <span class="comment">#获得绝对路径</span></span><br><span class="line">os.path.isabs() <span class="comment">#判断是否为绝对路径</span></span><br><span class="line">os.path.normpath(path) <span class="comment">#规范path字符串形式</span></span><br><span class="line">os.path.split(name) <span class="comment">#分割文件名与目录（事实上，如果你完全使用目录，它也会将最后一个目录作为文件名而分离，同时它不会判断文件或目录是否存在）</span></span><br><span class="line">os.path.splitext() <span class="comment">#分离文件名和扩展名</span></span><br><span class="line">os.path.join(path,name) <span class="comment">#连接目录与文件名或目录</span></span><br><span class="line">os.path.basename(path) <span class="comment">#返回文件名</span></span><br><span class="line">os.path.dirname(path) <span class="comment">#返回文件路径</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a><strong>文件操作</strong></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">os.mknod(<span class="string">"text.txt"</span>)<span class="comment">#创建空文件</span></span><br><span class="line">fp = open(<span class="string">"text.txt"</span>,w) <span class="comment">#直接打开一个文件，如果文件不存在就创建文件</span></span><br><span class="line">os.startfile(<span class="string">r"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\微信\微信.lnk"</span>)  <span class="comment">#打开一个文件或一个软件，可以通过快捷方式打开软件。</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">关于OPEN参数：</span></span><br><span class="line"><span class="string">w 写方式</span></span><br><span class="line"><span class="string">a 追加模式打开（从EOF开始，必要时创建新文件）</span></span><br><span class="line"><span class="string">r+ 以读写模式打开</span></span><br><span class="line"><span class="string">w+ 以读写模式打开</span></span><br><span class="line"><span class="string">a+ 以读写模式打开</span></span><br><span class="line"><span class="string">rb 以二进制读模式打开</span></span><br><span class="line"><span class="string">wb 以二进制写模式打开 (参见 w )</span></span><br><span class="line"><span class="string">ab 以二进制追加模式打开 (参见 a )</span></span><br><span class="line"><span class="string">rb+ 以二进制读写模式打开 (参见 r+ )</span></span><br><span class="line"><span class="string">wb+ 以二进制读写模式打开 (参见 w+ )</span></span><br><span class="line"><span class="string">ab+ 以二进制读写模式打开 (参见 a+ )</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">fp.read([size])  <span class="comment">#size为读取的长度，以byte为单位</span></span><br><span class="line"> </span><br><span class="line">fp.readline([size])  <span class="comment">#读一行，如果定义了size，有可能返回的只是一行的一部分</span></span><br><span class="line"> </span><br><span class="line">fp.readlines([size])  <span class="comment">#把文件每一行作为一个list的一个成员，并返回这个list。其实它的内部是通过循环调用readline()来实现的。如果提供size参数，size是表示读取内容的总长，也就是说可能只读到文件的一部分。</span></span><br><span class="line"> </span><br><span class="line">fp.write(str)  <span class="comment">#把str写到文件中，write()并不会在str后加上一个换行符</span></span><br><span class="line"> </span><br><span class="line">fp.writelines(seq)  <span class="comment">#把seq的内容全部写到文件中(多行一次性写入)。这个函数也只是忠实地写入，不会在每行后面加上任何东西。</span></span><br><span class="line"> </span><br><span class="line">fp.close()  <span class="comment">#关闭文件。python会在一个文件不用后自动关闭文件，不过这一功能没有保证，最好还是养成自己关闭的习惯。 如果一个文件在关闭后还对其进行操作会产生ValueError</span></span><br><span class="line"> </span><br><span class="line">fp.flush()  <span class="comment">#把缓冲区的内容写入硬盘</span></span><br><span class="line"> </span><br><span class="line">fp.fileno()  <span class="comment">#返回一个长整型的”文件标签“</span></span><br><span class="line"> </span><br><span class="line">fp.isatty()  <span class="comment">#文件是否是一个终端设备文件（unix系统中的）</span></span><br><span class="line"> </span><br><span class="line">fp.tell()  <span class="comment">#返回文件操作标记的当前位置，以文件的开头为原点</span></span><br><span class="line"> </span><br><span class="line">fp.next()  <span class="comment">#返回下一行，并将文件操作标记位移到下一行。把一个file用于for … in file这样的语句时，就是调用next()函数来实现遍历的。</span></span><br><span class="line"> </span><br><span class="line">fp.seek(offset[,whence])  <span class="string">'''将文件打操作标记移到offset的位置。这个offset一般是相对于文件的开头来计算的，一般为正数。但如果提供了whence参数就不一定了，whence可以为0表示从头开始计算，1表示以当前位置为原点计算。2表示以文件末尾为原点进行计算。需要注意，如果文件以a或a+的模式打开，每次进行写操作时，文件操作标记会自动返回到文件末尾。'''</span></span><br><span class="line"> </span><br><span class="line">fp.truncate([size])  <span class="string">'''把文件裁成规定的大小，默认的是裁到当前文件操作标记的位置。如果size比文件的大小还要大，依据系统的不同可能是不改变文件，也可能是用0把文件补到相应的大小，也可能是以一些随机的内容加上去。'''</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a><strong>目录操作</strong></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">os.mkdir(<span class="string">"file"</span>)　<span class="comment">#创建目录</span></span><br><span class="line"></span><br><span class="line">shutil.copyfile(<span class="string">"oldfile"</span>,<span class="string">"newfile"</span>)　<span class="comment">#复制文件:oldfile和newfile都只能是文件</span></span><br><span class="line"></span><br><span class="line">shutil.copy(<span class="string">"oldfile"</span>,<span class="string">"newfile"</span>)  <span class="comment">#oldfile只能是文件夹，newfile可以是文件，也可以是目标目录</span></span><br><span class="line"></span><br><span class="line">shutil.copytree(<span class="string">"olddir"</span>,<span class="string">"newdir"</span>)  <span class="comment">#复制文件夹.olddir和newdir都只能是目录，且newdir必须不存在</span></span><br><span class="line"></span><br><span class="line">os.rename(<span class="string">"oldname"</span>,<span class="string">"newname"</span>)  <span class="comment">#重命名文件（目录）.文件或目录都是使用这条命令</span></span><br><span class="line"></span><br><span class="line">shutil.move(<span class="string">"oldpos"</span>,<span class="string">"newpos"</span>)  <span class="comment">#移动文件（目录）</span></span><br><span class="line"></span><br><span class="line">os.rmdir(<span class="string">"dir"</span>)  <span class="comment">#只能删除空目录</span></span><br><span class="line"></span><br><span class="line">shutil.rmtree(<span class="string">"dir"</span>)  <span class="comment">#空目录、有内容的目录都可以删</span></span><br><span class="line"></span><br><span class="line">os.chdir(<span class="string">"path"</span>)  <span class="comment">#转换目录，换路径</span></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">52haokan</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2021/01/13/windows%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%B1%87%E6%80%BB/" class="pre-post btn btn-default" title='windows快捷键汇总'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            windows快捷键汇总</span>
+    </a>
+    
+    
+    <a href="/2021/01/11/Python%20xlwings%E5%BA%93%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89/" class="next-post btn btn-default" title='Python xlwings库学习笔记（2）'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            Python xlwings库学习笔记（2）</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python-OS-文件-目录方法学习笔记"><span class="toc-text">Python OS 文件&#x2F;目录方法学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常见函数"><span class="toc-text">常见函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件操作"><span class="toc-text">文件操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#目录操作"><span class="toc-text">目录操作</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>
