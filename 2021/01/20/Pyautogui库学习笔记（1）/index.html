@@ -1,0 +1,343 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="52haokan读书笔记">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="https://52haokan.github.io.git">
+    <!--SEO-->
+
+<meta name="keywords" content="办公自动化,Python" />
+
+
+<meta name="description" content="​        PyAutoGUI是可在Python 2和3上运行的跨平台GUI自动化模块。可以控制鼠标和键盘，以及执行基本的图像识别以自动执行计算机上的任务。具有鼠标控制、键盘控制、信息框功..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    Pyautogui库学习笔记（1） |
+    
+    52haokan读书笔记
+</title>
+
+<link rel="alternate" href="/atom.xml" title="52haokan读书笔记" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    https://gitee.com/a-52haokan/tupian/raw/master/https://gitee.com/a-52haokan/tupian/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='52haokan'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://52haokan.github.io.git">
+                        52haokan读书笔记</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/读书笔记/"><i class="fa "></i>
+                                读书笔记</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/Python学习/"><i class="fa "></i>
+                                Python学习</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/办公技巧/"><i class="fa "></i>
+                                办公技巧</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/其他/"><i class="fa "></i>
+                                其他</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Pyautogui库学习笔记（1）">
+            
+            Pyautogui库学习笔记（1）
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Python%E5%AD%A6%E4%B9%A0/">Python学习</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/Python/" rel="tag">Python</a> <a class="tag-link" href="/tags/%E5%8A%9E%E5%85%AC%E8%87%AA%E5%8A%A8%E5%8C%96/" rel="tag">办公自动化</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2021/01/20</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>​        PyAutoGUI是可在Python 2和3上运行的跨平台GUI自动化模块。可以控制鼠标和键盘，以及执行基本的图像识别以自动执行计算机上的任务。具有鼠标控制、键盘控制、信息框功能、屏幕截屏及图像识别功能，主要用于模拟人操作来完成一些重复性的办公自动化任务。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a><strong>安装</strong></h2><p>在Windows系统，可以使用pip命令：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pyautogui</span><br></pre></td></tr></table></figure>
+
+<h2 id="鼠标控制"><a href="#鼠标控制" class="headerlink" title="鼠标控制"></a><strong>鼠标控制</strong></h2><p>XY坐标在屏幕的左上角具有0、0的原点。X向右增加，Y向向下增加。</p>
+<p>屏幕左上角的像素位于坐标0、0。如果屏幕的分辨率为1920 x 1080，则右下角的像素将为1919、1079（因为坐标始于0，而不是1）。</p>
+<p>屏幕分辨率大小由该<code>size()</code>函数作为两个整数的元组返回。该<code>position()</code>函数返回鼠标光标的当前X和Y坐标。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.size()</span><br><span class="line">(<span class="number">1920</span>, <span class="number">1080</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.position()</span><br><span class="line">(<span class="number">187</span>, <span class="number">567</span>)</span><br></pre></td></tr></table></figure>
+
+<p>要检查XY坐标是否在屏幕上，请将它们（作为两个整数参数或具有两个整数的单个元组/列表参数）传递给该<code>onScreen()</code>函数，<code>True</code>如果它们在屏幕边界之内，则返回该函数<code>False</code>。例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.onScreen(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.onScreen(<span class="number">0</span>, <span class="number">-1</span>)</span><br><span class="line"><span class="literal">False</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.onScreen(<span class="number">0</span>, <span class="number">99999999</span>)</span><br><span class="line"><span class="literal">False</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.size()</span><br><span class="line">(<span class="number">1920</span>, <span class="number">1080</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.onScreen(<span class="number">1920</span>, <span class="number">1080</span>)</span><br><span class="line"><span class="literal">False</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.onScreen(<span class="number">1919</span>, <span class="number">1079</span>)</span><br><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="鼠标移动"><a href="#鼠标移动" class="headerlink" title="鼠标移动"></a><strong>鼠标移动</strong></h3><p><code>moveTo()</code>函数会将鼠标光标移至您传递的X和Y整数坐标。<code>None</code>可以为坐标传递该值，以表示“当前鼠标光标位置”。例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.moveTo(<span class="number">100</span>, <span class="number">200</span>)   <span class="comment"># 移动鼠标到 X轴100, Y轴 200.</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.moveTo(<span class="literal">None</span>, <span class="number">500</span>)  <span class="comment"># 移动鼠标到X轴不变, Y轴500.</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.moveTo(<span class="number">600</span>, <span class="literal">None</span>)  <span class="comment"># 移动鼠标到 X轴600, Y轴不变.</span></span><br></pre></td></tr></table></figure>
+
+<p>通常，鼠标光标会立即移动到新坐标。如果您希望鼠标逐渐移动到新位置，请在移动所需的持续时间（以秒为单位）中传递第三个参数。例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.moveTo(<span class="number">100</span>, <span class="number">200</span>, <span class="number">2</span>)   <span class="comment">#移动鼠标到X轴100, Y 轴200 2秒内</span></span><br></pre></td></tr></table></figure>
+
+<p>（如果持续时间小于<code>pyautogui.MINIMUM_DURATION</code>该运动将是即时的。默认<code>pyautogui.MINIMUM_DURATION</code>值为0.1。）</p>
+<p>如果要将鼠标光标相对于其当前位置移动几个像素，请使用该move()功能。此函数的参数与相似moveTo()。例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.moveTo(<span class="number">100</span>, <span class="number">200</span>)  <span class="comment"># 移动到X 轴100, Y 轴 200.</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.move(<span class="number">0</span>, <span class="number">50</span>)       <span class="comment"># 鼠标下降 50 像数.</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.move(<span class="number">-30</span>, <span class="number">0</span>)      <span class="comment"># 鼠标左移 30 像数.</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.move(<span class="number">-30</span>, <span class="literal">None</span>)   <span class="comment"># 鼠标左移 30 像数.</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="鼠标拖曳"><a href="#鼠标拖曳" class="headerlink" title="鼠标拖曳"></a><strong>鼠标拖曳</strong></h3><p>PyAutoGUI的<code>dragTo()</code>和<code>drag()</code>功能也有类似的参数作为<code>moveTo()</code>和<code>move()</code>功能。此外，它们还有一个<code>button</code>可以设置为<code>&#39;left&#39;</code>，的关键字<code>&#39;middle&#39;</code>，并且<code>&#39;right&#39;</code>在拖动时按住该鼠标键不放。例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.dragTo(<span class="number">100</span>, <span class="number">200</span>, button=<span class="string">'left'</span>)     <span class="comment"># 按住左键拖动鼠标到X轴100, Y 轴200 </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.dragTo(<span class="number">300</span>, <span class="number">400</span>, <span class="number">2</span>, button=<span class="string">'left'</span>)  <span class="comment"># 2秒内按住左键拖动鼠标到X轴 300, Y轴400 </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.drag(<span class="number">30</span>, <span class="number">0</span>, <span class="number">2</span>, button=<span class="string">'right'</span>)   <span class="comment"># 2秒内按住右键拖动鼠标右移30像数</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="鼠标点击"><a href="#鼠标点击" class="headerlink" title="鼠标点击"></a><strong>鼠标点击</strong></h3><p>该<code>click()</code>功能模拟在鼠标的当前位置单击鼠标左键。“点击”的定义是按下按钮然后将其释放。例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.click()  <span class="comment"># 点击鼠标</span></span><br></pre></td></tr></table></figure>
+
+<p>要<code>moveTo()</code>在点击之前合并调用，请为<code>x</code>and<code>y</code>关键字参数传递整数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.click(x=<span class="number">100</span>, y=<span class="number">200</span>)  <span class="comment"># 鼠标移动100, 200, 并点击左键.</span></span><br></pre></td></tr></table></figure>
+
+<p>要指定不同的鼠标键点击，传递<code>&#39;left&#39;</code>，<code>&#39;middle&#39;</code>或 <code>&#39;right&#39;</code>为<code>button</code>关键字参数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.click(button=<span class="string">'right'</span>)  <span class="comment"># 右击鼠标</span></span><br></pre></td></tr></table></figure>
+
+<p>要进行多次点击，请将整数传递给<code>clicks</code>关键字参数。（可选）您可以将float或integer传递给<code>interval</code>关键字参数，以指定两次点击之间的暂停时间（以秒为单位）。例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.click(clicks=<span class="number">2</span>)  <span class="comment"># 双击鼠标左键</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.click(clicks=<span class="number">2</span>, interval=<span class="number">0.25</span>)  <span class="comment"># 双击鼠标左键, 间隔0.25s</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.click(button=<span class="string">'right'</span>, clicks=<span class="number">3</span>, interval=<span class="number">0.25</span>)  <span class="comment">## 三次单击鼠标右键，两次单击之间有四分之一秒的停顿</span></span><br></pre></td></tr></table></figure>
+
+<p>作为便捷的快捷方式，该<code>doubleClick()</code>功能将双击鼠标左键。它还具有可选<code>x</code>，<code>y</code>，<code>interval</code>，和<code>button</code>关键字参数。例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.doubleClick()  <span class="comment"># 双击左键</span></span><br></pre></td></tr></table></figure>
+
+<p>还有一个<code>tripleClick()</code>带有类似可选关键字参数的函数。</p>
+<p>该<code>rightClick()</code>函数具有可选参数<code>x</code>和<code>y</code>关键字参数。</p>
+<h3 id="mouseDown（）和mouseUp（）函数"><a href="#mouseDown（）和mouseUp（）函数" class="headerlink" title="mouseDown（）和mouseUp（）函数"></a><strong>mouseDown（）和mouseUp（）函数</strong></h3><p>鼠标的点击和拖动包括按下鼠标按钮并向上释放鼠标按钮。如果要单独执行这些操作，请调用<code>mouseDown()</code>和<code>mouseUp()</code>函数。它们具有相同的<code>x</code>，<code>y</code>和<code>button</code>。例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.mouseDown(); pyautogui.mouseUp()  <span class="comment"># 与鼠标左键单击做相同的事情</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.mouseDown(button=<span class="string">'right'</span>)  <span class="comment"># 按下右键</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.mouseUp(button=<span class="string">'right'</span>, x=<span class="number">100</span>, y=<span class="number">200</span>)  <span class="comment"># 将鼠标移动到100、200，然后释放右键。</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="鼠标滚动"><a href="#鼠标滚动" class="headerlink" title="鼠标滚动"></a><strong>鼠标滚动</strong></h3><p>可以通过调用<code>scroll()</code>函数并传递整数个“单击”来滚动鼠标滚轮。在不同平台上，“单击”中的滚动量会有所不同。（可选）可以为the<code>x</code>和<code>y</code>keyword参数传递整数，以在执行滚动之前移动鼠标光标。例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.scroll(<span class="number">10</span>)   <span class="comment"># 向上滚动10次“点击”</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.scroll(<span class="number">-10</span>)  <span class="comment"># 向下滚动10次“点击”</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.scroll(<span class="number">10</span>, x=<span class="number">100</span>, y=<span class="number">100</span>)  <span class="comment"># 将鼠标光标移动到100、200，然后向上滚动10次“点击”</span></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">52haokan</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+    <a href="/2021/01/19/Python-%E5%A6%82%E4%BD%95%E5%90%AF%E5%8A%A8%E5%85%B6%E4%BB%96%E7%A8%8B%E5%BA%8F/" class="next-post btn btn-default" title='Python 如何启动其他程序'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            Python 如何启动其他程序</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#鼠标控制"><span class="toc-text">鼠标控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#鼠标移动"><span class="toc-text">鼠标移动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#鼠标拖曳"><span class="toc-text">鼠标拖曳</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#鼠标点击"><span class="toc-text">鼠标点击</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mouseDown（）和mouseUp（）函数"><span class="toc-text">mouseDown（）和mouseUp（）函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#鼠标滚动"><span class="toc-text">鼠标滚动</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>

@@ -22,8 +22,8 @@
 <meta name="keywords" content="办公自动化,Python" />
 
 
-<meta name="description" content="Python 如何启动其他程序​     在利用Python实现办公自动化的过程中，经常需要启动其他专用程序来进行一些操作，比如微信、erp等内部数据系统等，启动其他程序的方法有以下几种：
-方法..." />
+<meta name="description" content="在利用Python实现办公自动化的过程中，经常需要启动其他专用程序来进行一些操作，比如微信、erp等内部数据系统等，启动其他程序的方法有以下几种：
+方法一：os.startfile()该方法可以..." />
 
 
 <meta name="robots" content="all" />
@@ -155,7 +155,7 @@
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a class="category-link" href="/categories/Python-%E5%AD%A6%E4%B9%A0/">Python 学习</a>
+        <a class="category-link" href="/categories/Python%E5%AD%A6%E4%B9%A0/">Python学习</a>
     </span>
     
     
@@ -183,8 +183,8 @@
     </div>
     
     <div class="post-body post-content">
-        <h1 id="Python-如何启动其他程序"><a href="#Python-如何启动其他程序" class="headerlink" title="Python 如何启动其他程序"></a><strong>Python 如何启动其他程序</strong></h1><p>​     在利用Python实现办公自动化的过程中，经常需要启动其他专用程序来进行一些操作，比如微信、erp等内部数据系统等，启动其他程序的方法有以下几种：</p>
-<h3 id="方法一：os-startfile"><a href="#方法一：os-startfile" class="headerlink" title="方法一：os.startfile()"></a><strong>方法一：os.startfile()</strong></h3><p>​    该方法可以直接启动exe文件，erp等部分软件启动时需要配置参数不能直接启动exe文件，可以通过快捷方式启动：</p>
+        <p>在利用Python实现办公自动化的过程中，经常需要启动其他专用程序来进行一些操作，比如微信、erp等内部数据系统等，启动其他程序的方法有以下几种：</p>
+<h3 id="方法一：os-startfile"><a href="#方法一：os-startfile" class="headerlink" title="方法一：os.startfile()"></a><strong>方法一：os.startfile()</strong></h3><p>该方法可以直接启动exe文件，erp等部分软件启动时需要配置参数不能直接启动exe文件，可以通过快捷方式启动：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.startfile(<span class="string">r"F:\Program Files\WeChat\WeChat.exe"</span>)</span><br><span class="line">os.startfile(<span class="string">r"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\微信\微信.lnk"</span>)</span><br></pre></td></tr></table></figure>
 
 <h3 id="方法二：使用ShellExecute函数运行其他程序"><a href="#方法二：使用ShellExecute函数运行其他程序" class="headerlink" title="方法二：使用ShellExecute函数运行其他程序"></a><strong>方法二：使用ShellExecute函数运行其他程序</strong></h3><p>还可以使用win32api模块中的ShellExecute()函数来运行其他程序。</p>
@@ -239,6 +239,12 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
+    <a href="/2021/01/20/Pyautogui%E5%BA%93%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/" class="pre-post btn btn-default" title='Pyautogui库学习笔记（1）'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            Pyautogui库学习笔记（1）</span>
+    </a>
+    
     
     <a href="/2021/01/13/windows%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%B1%87%E6%80%BB/" class="next-post btn btn-default" title='windows快捷键汇总'>
         <span class="hidden-lg">下一篇</span>
@@ -284,7 +290,7 @@ new Valine({
             文章目录
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python-如何启动其他程序"><span class="toc-text">Python 如何启动其他程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方法一：os-startfile"><span class="toc-text">方法一：os.startfile()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法二：使用ShellExecute函数运行其他程序"><span class="toc-text">方法二：使用ShellExecute函数运行其他程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法三：使用CreateProcess函数运行其他程序"><span class="toc-text">方法三：使用CreateProcess函数运行其他程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法四：pyautogui库"><span class="toc-text">方法四：pyautogui库</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#方法一：os-startfile"><span class="toc-text">方法一：os.startfile()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法二：使用ShellExecute函数运行其他程序"><span class="toc-text">方法二：使用ShellExecute函数运行其他程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法三：使用CreateProcess函数运行其他程序"><span class="toc-text">方法三：使用CreateProcess函数运行其他程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法四：pyautogui库"><span class="toc-text">方法四：pyautogui库</span></a></li></ol>
         
     </div>
 </aside>
