@@ -22,7 +22,7 @@
 <meta name="keywords" content="办公自动化,Python" />
 
 
-<meta name="description" content="52haokan的读书笔记，学习记录" />
+<meta name="description" content="屏幕截图功能PyAutoGUI可以截取屏幕截图，将其保存到文件中，并在屏幕上定位图像。如果您有一个很小的图像，例如需要单击一个按钮并想在屏幕上找到它的位置，则此功能很有用。这些功能由与PyAut..." />
 
 
 <meta name="robots" content="all" />
@@ -33,7 +33,7 @@
 
 <title>
     
-    Pyautogui库学习笔记（2） |
+    Pyautogui库学习笔记（3）-屏幕截屏 |
     
     52haokan读书笔记
 </title>
@@ -145,9 +145,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="Pyautogui库学习笔记（2）">
+        <h1 id="Pyautogui库学习笔记（3）-屏幕截屏">
             
-            Pyautogui库学习笔记（2）
+            Pyautogui库学习笔记（3）-屏幕截屏
             
         </h1>
         <div class="post-meta">
@@ -172,7 +172,7 @@
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2021/01/21</span>
+            2021/01/24</span>
     </span>
     
     
@@ -182,7 +182,16 @@
     </div>
     
     <div class="post-body post-content">
-        
+        <h2 id="屏幕截图功能"><a href="#屏幕截图功能" class="headerlink" title="屏幕截图功能"></a><strong>屏幕截图功能</strong></h2><p>PyAutoGUI可以截取屏幕截图，将其保存到文件中，并在屏幕上定位图像。如果您有一个很小的图像，例如需要单击一个按钮并想在屏幕上找到它的位置，则此功能很有用。这些功能由与PyAutoGUI一起安装的PyScreeze模块提供。屏幕截图功能需要Pillow模块。</p>
+<h3 id="screenshot（）函数"><a href="#screenshot（）函数" class="headerlink" title="screenshot（）函数"></a><strong>screenshot（）函数</strong></h3><p>调用<code>screenshot()</code>将返回一个Image对象（有关详细信息，请参见Pillow或PIL模块文档）。传递文件名字符串将把屏幕截图保存到文件中，并将其作为Image对象返回。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pyautogui</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>im1 = pyautogui.screenshot()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>im2 = pyautogui.screenshot(<span class="string">'my_screenshot.png'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>在1920 x 1080的屏幕上，该<code>screenshot()</code>功能大约需要100毫秒-它不快，但也不慢。</p>
+<p><code>region</code>如果您不需要整个屏幕的屏幕截图，则还有一个可选的关键字参数。您可以传递区域的左侧，顶部，宽度和高度的四整数元组来捕获：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pyautogui</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>im = pyautogui.screenshot(region=(<span class="number">0</span>,<span class="number">0</span>, <span class="number">300</span>, <span class="number">400</span>))</span><br></pre></td></tr></table></figure>
+
+<h3 id="定位功能"><a href="#定位功能" class="headerlink" title="定位功能"></a><strong>定位功能</strong></h3><p>注意：从0.9.41版本开始，如果locate函数找不到所提供的图像，则它们将升高<code>ImageNotFoundException</code>而不是返回<code>None</code>。如果有图像文件，则可以在屏幕上直观地找到它们。</p>
+
     </div>
     
     <div class="post-footer">
@@ -201,10 +210,10 @@
 <div class="article-nav prev-next-wrap clearfix">
     
     
-    <a href="/2021/01/20/Pyautogui%E5%BA%93%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/" class="next-post btn btn-default" title='Pyautogui库学习笔记（1）'>
+    <a href="/2021/01/21/Pyautogui%E5%BA%93%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89-%E9%94%AE%E7%9B%98%E6%8E%A7%E5%88%B6%E3%80%81%E4%BF%A1%E6%81%AF%E6%A1%86%E5%8A%9F%E8%83%BD/" class="next-post btn btn-default" title='Pyautogui库学习笔记（2）-键盘控制、信息框功能'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            Pyautogui库学习笔记（1）</span><i class="fa fa-angle-right fa-fw"></i>
+            Pyautogui库学习笔记（2）-键盘控制、信息框功能</span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>
@@ -245,7 +254,7 @@ new Valine({
             文章目录
         </h3>
         
-        <p>暂无目录</p>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#屏幕截图功能"><span class="toc-text">屏幕截图功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#screenshot（）函数"><span class="toc-text">screenshot（）函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定位功能"><span class="toc-text">定位功能</span></a></li></ol></li></ol>
         
     </div>
 </aside>
