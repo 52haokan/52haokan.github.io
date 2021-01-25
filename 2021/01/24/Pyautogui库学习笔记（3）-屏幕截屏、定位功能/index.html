@@ -1,0 +1,347 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="52haokan读书笔记">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="https://52haokan.github.io.git">
+    <!--SEO-->
+
+<meta name="keywords" content="办公自动化,Python,pyautogui" />
+
+
+<meta name="description" content="屏幕截图功能PyAutoGUI可以截取屏幕截图，将其保存到文件中，并在屏幕上定位图像。如果您有一个很小的图像，例如需要单击一个按钮并想在屏幕上找到它的位置，则此功能很有用。这些功能由与PyAut..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    Pyautogui库学习笔记（3）-屏幕截屏、定位功能 |
+    
+    52haokan读书笔记
+</title>
+
+<link rel="alternate" href="/atom.xml" title="52haokan读书笔记" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    https://gitee.com/a-52haokan/tupian/raw/master/https://gitee.com/a-52haokan/tupian/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='52haokan'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://52haokan.github.io.git">
+                        52haokan读书笔记</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/读书笔记/"><i class="fa "></i>
+                                读书笔记</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/Python学习/"><i class="fa "></i>
+                                Python学习</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/办公技巧/"><i class="fa "></i>
+                                办公技巧</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/其他/"><i class="fa "></i>
+                                其他</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Pyautogui库学习笔记（3）-屏幕截屏、定位功能">
+            
+            Pyautogui库学习笔记（3）-屏幕截屏、定位功能
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Python%E5%AD%A6%E4%B9%A0/">Python学习</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/Python/" rel="tag">Python</a> <a class="tag-link" href="/tags/pyautogui/" rel="tag">pyautogui</a> <a class="tag-link" href="/tags/%E5%8A%9E%E5%85%AC%E8%87%AA%E5%8A%A8%E5%8C%96/" rel="tag">办公自动化</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2021/01/24</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="屏幕截图功能"><a href="#屏幕截图功能" class="headerlink" title="屏幕截图功能"></a><strong>屏幕截图功能</strong></h2><p>PyAutoGUI可以截取屏幕截图，将其保存到文件中，并在屏幕上定位图像。如果您有一个很小的图像，例如需要单击一个按钮并想在屏幕上找到它的位置，则此功能很有用。这些功能由与PyAutoGUI一起安装的PyScreeze模块提供。屏幕截图功能需要Pillow模块。</p>
+<h3 id="screenshot（）函数"><a href="#screenshot（）函数" class="headerlink" title="screenshot（）函数"></a><strong>screenshot（）函数</strong></h3><p>调用<code>screenshot()</code>将返回一个Image对象。传递文件名字符串将把屏幕截图保存到文件中，并将其作为Image对象返回。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pyautogui</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>im1 = pyautogui.screenshot()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>im2 = pyautogui.screenshot(<span class="string">'my_screenshot.png'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>在1920 x 1080的屏幕上，该<code>screenshot()</code>功能大约需要100毫秒-它不快，但也不慢。</p>
+<p><code>region</code>如果您不需要整个屏幕的屏幕截图，则还有一个可选的关键字参数。您可以传递区域的左侧，顶部，宽度和高度的四整数元组来捕获：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pyautogui</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>im = pyautogui.screenshot(region=(<span class="number">0</span>,<span class="number">0</span>, <span class="number">300</span>, <span class="number">400</span>))</span><br></pre></td></tr></table></figure>
+
+<h2 id="定位功能"><a href="#定位功能" class="headerlink" title="定位功能"></a><strong>定位功能</strong></h2><h3 id="图片定位"><a href="#图片定位" class="headerlink" title="图片定位"></a><strong>图片定位</strong></h3><p>如果有图像文件，则可以在屏幕上直观地找到它们。例如，假设计算器应用程序正在您的计算机上运行，如下所示：</p>
+<p><img src="https://gitee.com/a-52haokan/tupian/raw/master/https://gitee.com/a-52haokan/tupian/calculator.png" alt="_images / calculator.png"></p>
+<p>如果您不知道计算器按钮所在的确切屏幕坐标，则不能调用<code>moveTo()</code>和<code>click()</code>函数。每次启动时，计算器可能会出现在稍有不同的位置，从而使您每次都重新找到坐标。但是，如果您有按钮的图像，例如7按钮的图像：</p>
+<p><img src="https://gitee.com/a-52haokan/tupian/raw/master/https://gitee.com/a-52haokan/tupian/calc7key.png" alt="_images / calc7key.png"></p>
+<p>…您可以调用该<code>locateOnScreen(&#39;calc7key.png&#39;)</code>函数以获取屏幕坐标。返回值为4整数元组：（左，上，宽度，高度）。可以传递该元组<code>center()</code>以获取该区域中心的X和Y坐标。如果无法在屏幕上找到图像，请<code>locateOnScreen()</code>升高<code>ImageNotFoundException</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pyautogui</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>button7location = pyautogui.locateOnScreen(<span class="string">'calc7key.png'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>button7location</span><br><span class="line">Box(left=<span class="number">1416</span>, top=<span class="number">562</span>, width=<span class="number">50</span>, height=<span class="number">41</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>button7location[<span class="number">0</span>]</span><br><span class="line"><span class="number">1416</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>button7location.left</span><br><span class="line"><span class="number">1416</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>button7point = pyautogui.center(button7location)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>button7point</span><br><span class="line">Point(x=<span class="number">1441</span>, y=<span class="number">582</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>button7point[<span class="number">0</span>]</span><br><span class="line"><span class="number">1441</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>button7point.x</span><br><span class="line"><span class="number">1441</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>button7x, button7y = button7point</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.click(button7x, button7y)  <span class="comment"># 点击7的中心位置</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.click(<span class="string">'calc7key.png'</span>) <span class="comment"># 点击7的中心位置的一种快捷方式</span></span><br></pre></td></tr></table></figure>
+
+<p>可选的<code>confidence</code>关键字参数指定函数在屏幕上定位图像的精度。如果该功能由于可忽略的像素差异而无法定位图像，这将很有帮助：</p>
+<p><strong>注意</strong>：您需要安装<a href="https://pypi.org/project/opencv-python/" target="_blank" rel="noopener">OpenCV</a>才能使<code>confidence</code>关键字起作用。</p>
+<p>该<code>locateCenterOnScreen()</code>函数结合<code>locateOnScreen()</code>和<code>center()</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pyautogui</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x, y = pyautogui.locateCenterOnScreen(<span class="string">'calc7key.png'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.click(x, y)</span><br></pre></td></tr></table></figure>
+
+<p>在1920 x 1080屏幕上，定位功能调用大约需要1或2秒。对于动作视频游戏来说，这可能太慢了，但可用于大多数目的和应用程序。</p>
+<p>有几个“定位”功能。他们都开始看屏幕（或图像）的左上角，然后向右看然后向下看。参数可以是</p>
+<ul>
+<li><code>locateOnScreen(image, grayscale=False)</code>-返回<code>image</code>屏幕上第一个找到的实例的（左，上，宽，高）坐标。如果在屏幕上找不到，则引发 ·<code>ImageNotFoundException</code> 。</li>
+<li><code>locateCenterOnScreen(image, grayscale=False)</code>-返回<code>image</code>屏幕上第一个找到的实例的中心的（x，y）坐标。如果在屏幕上找不到，则引发 <code>ImageNotFoundException</code>。</li>
+<li><code>locateAllOnScreen(image, grayscale=False)</code> -返回生成器，生成在屏幕上找到图像的位置的（左，上，宽，高）元组。</li>
+<li><code>locate(needleImage, haystackImage, grayscale=False)</code>-返回<code>needleImage</code>in中第一个找到的实例的（左，上，宽，高）坐标<code>haystackImage</code>。如果在屏幕上找不到，则引发 <code>ImageNotFoundException</code>。</li>
+<li><code>locateAll(needleImage, haystackImage, grayscale=False)</code>-返回发电机，其产率（左，上，宽度，高度）元组，其中<code>needleImage</code>在被发现<code>haystackImage</code>。</li>
+</ul>
+<p>查找所有  函数可用于for循环或传递给<code>list()</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pyautogui</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> pos <span class="keyword">in</span> pyautogui.locateAllOnScreen(<span class="string">'someButton.png'</span>)</span><br><span class="line"><span class="meta">... </span>  print(pos)</span><br><span class="line">...</span><br><span class="line">(<span class="number">1101</span>, <span class="number">252</span>, <span class="number">50</span>, <span class="number">50</span>)</span><br><span class="line">(<span class="number">59</span>, <span class="number">481</span>, <span class="number">50</span>, <span class="number">50</span>)</span><br><span class="line">(<span class="number">1395</span>, <span class="number">640</span>, <span class="number">50</span>, <span class="number">50</span>)</span><br><span class="line">(<span class="number">1838</span>, <span class="number">676</span>, <span class="number">50</span>, <span class="number">50</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list(pyautogui.locateAllOnScreen(<span class="string">'someButton.png'</span>))</span><br><span class="line">[(<span class="number">1101</span>, <span class="number">252</span>, <span class="number">50</span>, <span class="number">50</span>), (<span class="number">59</span>, <span class="number">481</span>, <span class="number">50</span>, <span class="number">50</span>), (<span class="number">1395</span>, <span class="number">640</span>, <span class="number">50</span>, <span class="number">50</span>), (<span class="number">1838</span>, <span class="number">676</span>, <span class="number">50</span>, <span class="number">50</span>)]</span><br></pre></td></tr></table></figure>
+
+<p>这些“定位”功能相当慢的。他们可能需要一整秒钟才能运行。加快速度的最佳方法是传递<code>region</code>参数（（左，顶部，宽度，高度的4整数元组））仅搜索屏幕的较小区域而不是全屏：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pyautogui</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.locateOnScreen(<span class="string">'someButton.png'</span>, region=(<span class="number">0</span>,<span class="number">0</span>, <span class="number">300</span>, <span class="number">400</span>))</span><br></pre></td></tr></table></figure>
+
+<h3 id="灰度匹配"><a href="#灰度匹配" class="headerlink" title="灰度匹配"></a><strong>灰度匹配</strong></h3><p>（可选）您可以传递<code>grayscale=True</code>给locate函数以略微加快速度（大约30％-ish）。这会使图像和屏幕截图中的颜色降低饱和度，加快定位速度，但可能导致不正确匹配。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pyautogui</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>button7location = pyautogui.locateOnScreen(<span class="string">'calc7key.png'</span>, grayscale=<span class="literal">True</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>button7location</span><br><span class="line">(<span class="number">1416</span>, <span class="number">562</span>, <span class="number">50</span>, <span class="number">41</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="像素匹配"><a href="#像素匹配" class="headerlink" title="像素匹配"></a><strong>像素匹配</strong></h3><p>要获取屏幕快照中像素的RGB颜色，请使用Image对象的<code>getpixel()</code>方法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pyautogui</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>im = pyautogui.screenshot()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>im.getpixel((<span class="number">100</span>, <span class="number">200</span>))</span><br><span class="line">(<span class="number">130</span>, <span class="number">135</span>, <span class="number">144</span>)</span><br></pre></td></tr></table></figure>
+
+<p>或者作为一个函数，调用<code>pixel()</code>PyAutoGUI函数，该函数是先前调用的包装：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pyautogui</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pix = pyautogui.pixel(<span class="number">100</span>, <span class="number">200</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pix</span><br><span class="line">RGB(red=<span class="number">130</span>, green=<span class="number">135</span>, blue=<span class="number">144</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pix[<span class="number">0</span>]</span><br><span class="line"><span class="number">130</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pix.red</span><br><span class="line"><span class="number">130</span></span><br></pre></td></tr></table></figure>
+
+<p>如果您只需要验证单个像素是否与给定像素匹配，则调用该<code>pixelMatchesColor()</code>函数，并将其表示的颜色的X坐标，Y坐标和RGB元组传递给该函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pyautogui</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.pixelMatchesColor(<span class="number">100</span>, <span class="number">200</span>, (<span class="number">130</span>, <span class="number">135</span>, <span class="number">144</span>))</span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.pixelMatchesColor(<span class="number">100</span>, <span class="number">200</span>, (<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>))</span><br><span class="line"><span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+<p>可选<code>tolerance</code>关键字参数指定在仍匹配的情况下，红色，绿色和蓝色值可以变化的程度：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pyautogui</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.pixelMatchesColor(<span class="number">100</span>, <span class="number">200</span>, (<span class="number">130</span>, <span class="number">135</span>, <span class="number">144</span>))</span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.pixelMatchesColor(<span class="number">100</span>, <span class="number">200</span>, (<span class="number">140</span>, <span class="number">125</span>, <span class="number">134</span>))</span><br><span class="line"><span class="literal">False</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.pixelMatchesColor(<span class="number">100</span>, <span class="number">200</span>, (<span class="number">140</span>, <span class="number">125</span>, <span class="number">134</span>), tolerance=<span class="number">10</span>)</span><br><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a><strong>结语</strong></h2><p>pyautogui库是我个人在进行办公自动化实践中用的比较多的库，主要用于模拟人工从公司内部的一些数据管理系统（没有数据库直接读写权限）导出数据进行一些相关的数据分析，在使用中也存在一些问题，图片定位失败的概率还是比较大，需要设置一些异常处理的流程来避免程序崩溃，并达到整体效果，移植性也不是很好。虽然在使用中碰到了这样一些问题，但在没有更学到更好的库之前，Pyautogui库还是我这种初学者比较好的选择。</p>
+<p>恳请各位大咖告知更好的方式。</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">52haokan</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+    <a href="/2021/01/21/Pyautogui%E5%BA%93%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89-%E9%94%AE%E7%9B%98%E6%8E%A7%E5%88%B6%E3%80%81%E4%BF%A1%E6%81%AF%E6%A1%86%E5%8A%9F%E8%83%BD/" class="next-post btn btn-default" title='Pyautogui库学习笔记（2）-键盘控制、信息框功能'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            Pyautogui库学习笔记（2）-键盘控制、信息框功能</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#屏幕截图功能"><span class="toc-text">屏幕截图功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#screenshot（）函数"><span class="toc-text">screenshot（）函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定位功能"><span class="toc-text">定位功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图片定位"><span class="toc-text">图片定位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#灰度匹配"><span class="toc-text">灰度匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#像素匹配"><span class="toc-text">像素匹配</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结语"><span class="toc-text">结语</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>
